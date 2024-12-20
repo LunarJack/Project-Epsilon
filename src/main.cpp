@@ -1,6 +1,6 @@
 #include "headers/lexer.hpp"
 #include <iostream>
-int main(int argv, std::string mode) {
+int main(int argc, char *argv[], std::string mode) {
     if (mode == "help") {
         std::cout << "Compile:\nepsilon compile <input file path>";
     } else {
