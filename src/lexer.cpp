@@ -128,29 +128,21 @@ bool isSkippable(char ch)
 {
     return ch == ' ' || ch == '\t' || ch == '\n';
 }
-int lex(int argc, char *argv[]) {
-    if (argc != 2)
-    {
-        std::cerr << "Incorrect arguments" << std::endl;
-        std::cerr << "Correct usage: epsilon compile <input file path --> input.ep>" << std::endl;
-        return EXIT_FAILURE;
-    }
-    {
-        const char *ext = ".ep";
-        size_t xlen = strlen(ext);
-        size_t slen = strlen(argv[1]);
-        int found = strcmp(argv[1] + slen - xlen, ext) == 0;
-        if (found == 0)
+int lex(std::string filepath) {
+    const char *ext = ".ep";
+    size_t xlen = strlen(ext);
+    size_t slen = strlen(filepath);
+    int found = strcmp(filepath + slen - xlen, ext) == 0;
+    if (found == 0)
         {
             std::cerr << "Invalid code file" << std::endl;
             return EXIT_FAILURE;
         }
-    }
     INIT_RESERVED_IDENTIFIER();
     std::string sourceCode;
     {
         std::stringstream contents_stream;
-        std::fstream input(argv[1], std::ios::in);
+        std::fstream input(filepath, std::ios::in);
         contents_stream << input.rdbuf();
         sourceCode = contents_stream.str();
     }

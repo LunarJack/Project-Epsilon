@@ -1,5 +1,5 @@
 #ifndef LEXER_HPP
 #define LEXER_HPP
-int lex(int argc, char *argv[]);
+int lex(std::string filepath);
 
 #endif // LEXER_H
