@@ -49,6 +49,7 @@ private:
         keywords["while"] = TokenType::KEYWORD;
         keywords["return"] = TokenType::KEYWORD;
         keywords["func"] = TokenType::KEYWORD;
+        keywords["import"] = TokenType::KEYWORD;
     }
 
     bool isWhitespace(char c)
