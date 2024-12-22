@@ -15,7 +15,6 @@ int main(int argc, char *argv[]) {
             cerr << "File not opened, " << argv[1] << " is not a valid file path\n";
         }
         else {
-            cout << "worked ";
             file.close();
         }
         fstream file2(argv[2]);
@@ -23,7 +22,6 @@ int main(int argc, char *argv[]) {
             cerr << "File not opened, " << argv[2] << " is not a valid file path\n";
         }
         else {
-            cout << "worked ";
             file2.close();
         }
     lex(argv[1]);

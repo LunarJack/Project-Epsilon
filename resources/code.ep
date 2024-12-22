@@ -1,2 +1,5 @@
-var string newVar = "hi"
-print() newVar
+func main() {
+    var string newVar = "hi";
+    print() newVar;
+    return true;
+}

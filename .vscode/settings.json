@@ -1,5 +1,7 @@
 {
     "files.associations": {
+        "vector": "cpp",
+        "string": "cpp",
         "__bit_reference": "cpp",
         "__hash_table": "cpp",
         "__locale": "cpp",
@@ -47,13 +49,11 @@
         "stack": "cpp",
         "stdexcept": "cpp",
         "streambuf": "cpp",
-        "string": "cpp",
         "string_view": "cpp",
         "tuple": "cpp",
         "typeinfo": "cpp",
         "unordered_map": "cpp",
         "variant": "cpp",
-        "vector": "cpp",
         "algorithm": "cpp"
     }
 }
