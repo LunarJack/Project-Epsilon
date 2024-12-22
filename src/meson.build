@@ -1,0 +1,1 @@
+sources = files('compile.cpp', 'lexer.cpp')

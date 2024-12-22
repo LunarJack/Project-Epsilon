@@ -15,9 +15,23 @@ enum TokenType
     Equals,
     OpenParen,
     CloseParen,
+    OpenCurlyBracket,
+    CloseCurlyBracket,
+    QuotationMark,
     BinaryOperator,
-    Always,
+    Const,
     Var,
+    Int,
+    Str,
+    Char,
+    Float,
+    Double,
+    Long,
+    Byte,
+    Short,
+    function,
+    import,
+
 };
 struct Token
 {
@@ -28,7 +42,68 @@ typedef std::map<std::string, TokenType> ReservedIdentMap;
 ReservedIdentMap reservedIdent;
 void INIT_RESERVED_IDENTIFIER()
 {
-    reservedIdent["let"] = TokenType::Let;
+    reservedIdent["const"] = TokenType::Const;
+    reservedIdent["var"] = TokenType::Var;
+    reservedIdent["int"] = TokenType::Int;
+    reservedIdent["str"] = TokenType::Str;
+    reservedIdent["char"] = TokenType::Char;
+    reservedIdent["float"] = TokenType::Float;
+    reservedIdent["double"] = TokenType::Double;
+    reservedIdent["long"] = TokenType::Long;
+    reservedIdent["byte"] = TokenType::Byte;
+    reservedIdent["short"] = TokenType::Short;
+    reservedIdent["func "] = TokenType::Int;
+}
+std::string shift(std::vector<std::string> &src)
+{
+    std::string current = src.front();
+    src.erase(src.begin());
+    return current;
+}
+Token token(std::string value, TokenType tokentype)
+{
+    return {value, tokentype};
+}
+bool isNumber(const std::string &str)
+{
+    for (char ch : str)
+    {
+        if (!isdigit(ch))
+            return false;
+    }
+    return true;
+}
+bool isAlpha(const std::string &str)
+{
+    for (char ch : str)
+    {
+        if (!isalpha(ch))
+            return false;
+    }
+    return true;
+}
+bool isSkippable(char ch)
+{
+    return ch == ' ' || ch == '\t' || ch == '\n';
+}
+std::vector<std::string> splitString(const std::string &sourceCode) {
+    std::vector<std::string> words;
+    std::string word;
+
+    for (char ch : sourceCode) {
+        if (ch != ' ') {
+            word += ch;
+        } else if (!word.empty()) {
+            words.push_back(word);
+            word.clear();
+        }
+    }
+
+    if (!word.empty()) {
+        words.push_back(word);
+    }
+
+    return words;
 }
 std::vector<Token> tokenize(std::string &sourceCode) {
     std::vector<Token> tokens;
@@ -48,6 +123,15 @@ std::vector<Token> tokenize(std::string &sourceCode) {
     else if (src.front() == "=")
     {
         tokens.push_back(token(shift(src), TokenType::Equals));
+    }
+    else if (src.front() == "{") {
+        tokens.push_back(token(shift(src), TokenType::OpenCurlyBracket));
+    }
+    else if (src.front() == "}") {
+        tokens.push_back(token(shift(src), TokenType::CloseCurlyBracket));
+    }
+    else if (src.front() == "\"") {
+        tokens.push_back(token(shift(src), TokenType::QuotationMark));
     }
     else
     {
@@ -87,49 +171,9 @@ std::vector<Token> tokenize(std::string &sourceCode) {
 }
     return tokens;
 }
-std::vector<std::string> splitString(const std::string &sourceCode) {
-    std::vector<std::string> words;
-    std::string word;
 
-    for (char ch : sourceCode) {
-        if (ch != ' ') {
-            word += ch;
-        } else if (!word.empty()) {
-            words.push_back(word);
-            word.clear();
-        }
-    }
-
-    if (!word.empty()) {
-        words.push_back(word);
-    }
-
-    return words;
-}
-bool isNumber(const std::string &str)
-{
-    for (char ch : str)
-    {
-        if (!isdigit(ch))
-            return false;
-    }
-    return true;
-}
-bool isAlpha(const std::string &str)
-{
-    for (char ch : str)
-    {
-        if (!isalpha(ch))
-            return false;
-    }
-    return true;
-}
-bool isSkippable(char ch)
-{
-    return ch == ' ' || ch == '\t' || ch == '\n';
-}
-int lex(std::string filepath) {
-    const char *ext = ".ep";
+int lex(char *filepath) {
+    char ext[] = ".ep";
     size_t xlen = strlen(ext);
     size_t slen = strlen(filepath);
     int found = strcmp(filepath + slen - xlen, ext) == 0;
@@ -150,6 +194,8 @@ int lex(std::string filepath) {
     std::vector<Token> tokens = tokenize(sourceCode);
     for (int i = 0; i < tokens.size(); ++i)
     {
-        std::cout << "Value: " << tokens[i].value << "\n"
+        std::cout << "Value: " << tokens[i].value << "\n";
     }
+    return true;
 }
+long long SHIFT_CURR = 0;
