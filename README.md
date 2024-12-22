@@ -6,4 +6,4 @@ Epsilon is a coding language made in C ++
  - [Meson](https://mesonbuild.com/) (Version 1.6.1 or newer)
  - [GCC](https://gcc.gnu.org/)
 ## Building
-Make sure all dependenies are installed then 
+Make sure all dependencies are installed then run `meson setup build && rm -rf build/src/ && cd build && ninja` in the project folder to build it.
