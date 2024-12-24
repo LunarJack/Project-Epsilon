@@ -1,5 +1,15 @@
-func main() {
-    var string newVar = "hi";
-    print() newVar;
-    return true;
+func main()
+{
+    var string stringVar = "hi";
+    const double pi = 3.14159265;
+    if pi = =3.14159265
+    {
+        print(pi);
+    }
+    else 
+    {
+        print("Error! pi is not pi!");
+    }
+    print(stringVar);
+    return pi;
 }
