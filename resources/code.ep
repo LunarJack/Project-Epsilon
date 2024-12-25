@@ -2,7 +2,7 @@ func main()
 {
     var string stringVar = "hi";
     const double pi = 3.14159265;
-    if pi = =3.14159265
+    if pi = =3.14159265 && stringVar == "hi"
     {
         print(pi);
     }

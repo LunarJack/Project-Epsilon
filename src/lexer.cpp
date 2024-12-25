@@ -13,7 +13,6 @@ class LexicalAnalyzer
         string input;
         size_t position;
         unordered_map<string, TokenType> keywords;
-        unordered_map<string, TokenType> bitwise;
         unordered_map<string, TokenType> declarations;
         unordered_map<string, TokenType> token_types;
         unordered_map<string, TokenType> functions;
@@ -36,8 +35,6 @@ class LexicalAnalyzer
             functions["return"] = TokenType::FUNCTIONAL;
             declarations["func"] = TokenType::DECLARATION;
             functions["import"] = TokenType::FUNCTIONAL;
-            bitwise["&&"] = TokenType::BITWISE_OPERATOR;
-            bitwise["||"] = TokenType::BITWISE_OPERATOR;
         }
         bool isWhitespace(char c)
         {
@@ -131,11 +128,6 @@ class LexicalAnalyzer
                     tokens.emplace_back(TokenType::INTEGER_LITERAL, number);
                 }
             }
-            else if (bitwise.find(nextWord) != bitwise.end())
-            {
-                tokens.emplace_back(TokenType::BITWISE_OPERATOR, nextWord);
-                position++;
-            }
             else if (currentChar == '=')
             {
                 tokens.emplace_back(TokenType::OPERATOR, string(1, currentChar));
@@ -146,7 +138,7 @@ class LexicalAnalyzer
                 tokens.emplace_back(TokenType::OPERATOR, string(1, currentChar));
                 position++;
             }
-            else if (currentChar == '(' || currentChar == ')' || currentChar == '{' || currentChar == '}' || currentChar == '\"' || currentChar == '\'' || currentChar == ';')
+            else if (currentChar == '(' || currentChar == ')' || currentChar == '{' || currentChar == '}' || currentChar == '\"' || currentChar == '\'' || currentChar == ';' || currentChar == ',' || currentChar == '.' || currentChar == '&')
             {
                 tokens.emplace_back(TokenType::PUNCTUATOR, string(1, currentChar));
                 position++;
@@ -175,10 +167,6 @@ string getTokenTypeName(TokenType type)
         return "IDENTIFIER";
     case TokenType::VAR_TYPE:
         return "VAR_TYPE";
-    case TokenType::BITWISE_OPERATOR:
-        return "BITWISE_OPERATOR";
-    case TokenType::EQUALS_OPERATOR:
-        return "EQUALS_OPERATOR";
     case TokenType::INTEGER_LITERAL:
         return "INTEGER_LITERAL";
     case TokenType::FLOAT_LITERAL:
@@ -201,7 +189,7 @@ void printTokens(const vector<Token>& tokens)
         cout << "Type: " << getTokenTypeName(token.type) << ", Value: " << token.value << endl;
     }
 }
-
+vector<string> stringsAndIdentifiers;
 int lex(const string& filenameAndPath)
 {
     string ex = ".ep";

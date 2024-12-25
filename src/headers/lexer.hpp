@@ -13,8 +13,6 @@ enum TokenType
     DECLARATION,
     FUNCTIONAL,
     VAR_TYPE,
-    BITWISE_OPERATOR,
-    EQUALS_OPERATOR,
 };
 
 

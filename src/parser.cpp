@@ -3,36 +3,17 @@
 #include <iostream>
 #include <vector>
 #include <memory>
+
 using namespace std;
 
-class Expr {
-public:
-    class Binary {
-    public:
-        Binary(std::shared_ptr<Expr> left, std::shared_ptr<Token> operatorToken, std::shared_ptr<Expr> right)
-            : left(left), operatorToken(operatorToken), right(right) {}
-
-        std::shared_ptr<Expr> left;
-        std::shared_ptr<Token> operatorToken;
-        std::shared_ptr<Expr> right;
-    };
-
-    // Other expressions...
-};
-class parser
+class Parser 
 {
     private:
-        vector<Token> tokens;
-        int current = 0;
-        Expr equality() {
-            Expr expr = comparison();
-        }
-        Expr expression()
+        string AST;
+    public:
+        int parse(vector<string> stringsAndIdentifiers)
         {
-            return equality();
+            cout << AST;
+            return 0;
         }
-    parser(vector<Token> tokens)
-    {
-        this->tokens = tokens ;
-    }
 };
