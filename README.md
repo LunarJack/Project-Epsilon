@@ -1,5 +1,6 @@
 # Epsilon-Coding-Language
-[![Homebrew](https://img.shields.io/badge/Homebrew-FBB040?logo=homebrew&logoColor=fff)](#)
+[![Homebrew](https://img.shields.io/badge/Homebrew-FBB040?logo=homebrew&logoColor=fff)](#) 
+
 Epsilon is a coding language made in C ++
 ## Dependencies
  - [Python](https://python.org) (version 3.7 or newer)
