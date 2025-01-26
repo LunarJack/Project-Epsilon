@@ -1,3 +1,0 @@
-/Users/Lennon/Epsilon-Coding-Language/CMakeFiles/Epsilon.dir
-/Users/Lennon/Epsilon-Coding-Language/CMakeFiles/edit_cache.dir
-/Users/Lennon/Epsilon-Coding-Language/CMakeFiles/rebuild_cache.dir
