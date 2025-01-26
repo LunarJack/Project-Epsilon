@@ -1,12 +1,10 @@
-#include "headers/lexer.hpp"
-#include "headers/parser.hpp"
-#include <iostream>
+#include <lexer.hpp>
+#include <parser.hpp>
 #include <cstring>
-#include <fstream>
 
 using namespace std;
-
 int main(int argc, char *argv[]) {
+    vector<Token> AST;
 	if (argc != 3) {
         cerr << "Wrong arguments!\nThe proper command is:\nepsilonc <source filename and path> <compiled filename and path>" << endl;
         return EXIT_FAILURE;
@@ -25,6 +23,6 @@ int main(int argc, char *argv[]) {
         else {
             file2.close();
         }
-    lex(argv[1]);
+    lex(argv[1], AST);
     return 0;
 }
