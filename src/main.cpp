@@ -4,7 +4,8 @@
 
 using namespace std;
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
         if (argc == 2) {
                 if (strcmp(argv[1], "-h") == 0) {
                         cout << "HELP!?" << endl;

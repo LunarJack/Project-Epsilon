@@ -4,5 +4,6 @@
 Epsilon is a coding language made in C ++
 ## Dependencies
 - [CMake](https://cmake.org/) (Version 3.10 or newer.)
+- [libcurl](https://curl.se/)
 ## Building
-Make sure all dependencies are installed then run `make && make clean` in the project folder to build it.
+Make sure all dependencies are installed then run `cmake -B build && cd build && cmake --build .` in the project folder to build it.
