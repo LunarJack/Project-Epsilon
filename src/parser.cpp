@@ -11,7 +11,7 @@ class Parser
     private:
         string AST;
     public:
-        int parse(vector<string> stringsAndIdentifiers)
+        int parse(vector<string>& stringsAndIdentifiers)
         {
             cout << AST;
             return 0;
