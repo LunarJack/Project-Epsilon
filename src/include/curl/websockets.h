@@ -27,7 +27,8 @@
 #ifdef  __cplusplus
 extern "C" {
 #endif
-
+#include "system.h"
+#include "curl.h"
 struct curl_ws_frame {
   int age;              /* zero */
   int flags;            /* See the CURLWS_* defines */

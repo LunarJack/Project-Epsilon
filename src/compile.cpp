@@ -3,7 +3,7 @@
 #include <compile.hpp>
 
 using namespace std;
-int compile(string file1NameAndPath, string file2NameAndPath) {
+int compile(const string& file1NameAndPath, const string& file2NameAndPath) {
     vector<Token> AST;
     ifstream file(file1NameAndPath);
     if (!file.is_open())

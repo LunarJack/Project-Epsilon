@@ -176,6 +176,6 @@ class LexicalAnalyzer
         return tokens;
     }
 };
-int lex(const std::string& filenameAndPath, std::vector<Token> AST);
+int lex(const std::string& filenameAndPath, std::vector<Token>& AST);
 
 #endif // LEXER_HPP

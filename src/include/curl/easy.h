@@ -26,7 +26,7 @@
 #ifdef  __cplusplus
 extern "C" {
 #endif
-
+#include "curl.h"
 /* Flag bits in the curl_blob struct: */
 #define CURL_BLOB_COPY   1 /* tell libcurl to copy the data */
 #define CURL_BLOB_NOCOPY 0 /* tell libcurl to NOT copy the data */

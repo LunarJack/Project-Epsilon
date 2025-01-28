@@ -23,11 +23,11 @@
  * SPDX-License-Identifier: curl
  *
  ***************************************************************************/
-
+#include <cstddef>
+#include "curl.h"
 #ifdef  __cplusplus
 extern "C" {
 #endif
-
 struct curl_header {
   char *name;    /* this might not use the same case */
   char *value;

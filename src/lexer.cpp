@@ -36,10 +36,10 @@ void printTokens(const vector<Token>& tokens)
         cout << "Type: " << getTokenTypeName(token.type) << ", Value: " << token.value << endl;
     }
 }
-int lex(string filenameAndPath, vector<Token>& AST)
+int lex(const string& filenameAndPath, vector<Token>& AST)
 {
     string ex = ".ep";
-    if (!strstr(filenameAndPath.c_str, ex.c_str()))
+    if (!strstr(filenameAndPath.c_str(), ex.c_str()))
     {
         cout << "Incorrect file extension!" << endl;
         EXIT_FAILURE;

@@ -40,6 +40,7 @@
  * To add an option that uses the same type as an existing option, you will
  * just need to extend the appropriate _curl_*_option macro
  */
+#include "curl.h"
 #define curl_easy_setopt(handle, option, value)                         \
   __extension__({                                                       \
       CURLoption _curl_opt = (option);                                  \

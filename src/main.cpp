@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
                         string f1, f2;
                         f1 = argv[2];
                         f2 = argv[3];
-                        compile(argv[2], argv[3]);
+                        compile(f1, f2);
                 }
         }
         else

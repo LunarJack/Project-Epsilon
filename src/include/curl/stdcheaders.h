@@ -25,6 +25,7 @@
  ***************************************************************************/
 
 #include <sys/types.h>
+#include <stdio.h>
 
 size_t fread(void *, size_t, size_t, FILE *);
 size_t fwrite(const void *, size_t, size_t, FILE *);

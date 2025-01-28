@@ -27,7 +27,7 @@
 #ifdef  __cplusplus
 extern "C" {
 #endif
-
+#include "curl.h"
 typedef enum {
   CURLOT_LONG,    /* long (a range of values) */
   CURLOT_VALUES,  /*      (a defined set or bitmask) */
