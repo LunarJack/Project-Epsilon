@@ -1,5 +1,5 @@
-#ifndef LEXER_HPP
-#define LEXER_HPP
+#ifndef LEXER_H
+#define LEXER_H
 #include <string>
 #include <iostream>
 #include <unordered_map>
@@ -178,4 +178,4 @@ class LexicalAnalyzer
 };
 int lex(const std::string& filenameAndPath, std::vector<Token>& AST);
 
-#endif // LEXER_HPP
+#endif // LEXER_H

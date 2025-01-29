@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cstring>
-#include <compile.hpp>
+#include "include/compile.h"
 
 using namespace std;
 
@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
         {
                 if (strcmp(argv[1], "-h") == 0)
                 {
-                        cout << "HELP!?" << endl;
+                        cout << "To compile code type\n" << argv[0] << "-c <Input file> <Compiled code file>\nTo run compiled code type:\n" << argv[0] << "-r <Compiled code file>" << endl;
                         return 0;
                 }
         }
@@ -19,15 +19,12 @@ int main(int argc, char *argv[])
         {
                 if (strcmp(argv[1], "-c") == 0)
                 {
-                        string f1, f2;
-                        f1 = argv[2];
-                        f2 = argv[3];
-                        compile(f1, f2);
+                        compile(&argv[2], &argv[3]);
                 }
         }
         else
         {
-                cout << "Welcome to Epsilon!\nEpsilon is a coding language based on C ++.\nTo see a list of commands type:\nepsilon -h.\nTo run compiled code type:\nepsilon -r " << endl;
+                cout << "Welcome to Epsilon!\nEpsilon is a coding language based on C ++.\nTo see a list of commands type:\n " << argv[0] << " -h" << endl;
                 return 0;
         }
 }

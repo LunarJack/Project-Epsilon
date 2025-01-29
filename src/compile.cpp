@@ -1,9 +1,10 @@
-#include <lexer.hpp>
-#include <parser.hpp>
-#include <compile.hpp>
+#include "include/lexer.h"
+#include "include/parser.h"
+#include "include/compile.h"
 
 using namespace std;
-int compile(const string& file1NameAndPath, const string& file2NameAndPath) {
+int compile(char *file1NameAndPath, char *file2NameAndPath)
+{
     vector<Token> AST;
     ifstream file(file1NameAndPath);
     if (!file.is_open())
@@ -19,7 +20,8 @@ int compile(const string& file1NameAndPath, const string& file2NameAndPath) {
     {
         cerr << "File not opened, " << file2NameAndPath << " is not a valid file path\n" << endl;
     }
-    else {
+    else 
+    {
         file2.close();
     }
     lex(file1NameAndPath, AST);
