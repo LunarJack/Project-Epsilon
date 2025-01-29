@@ -1,8 +1,12 @@
+from lib import lib;
 func main()
 {
+    lib lib;
     var string stringVar = "hi";
     const double pi = 3.14159265;
-    if pi = =3.14159265 && stringVar == "hi"
+    const double h = 6.62607015;
+    const double store;
+    if (pi = =3.14159265 && stringVar == "hi")
     {
         print(pi);
     }
@@ -11,5 +15,6 @@ func main()
         print("Error! pi is not pi!");
     }
     print(stringVar);
+    lib.add(pi, h, store);
     return pi;
 }
