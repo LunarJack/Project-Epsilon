@@ -1,6 +1,6 @@
-#include "include/lexer.h"
-#include "include/parser.h"
-#include "include/compile.h"
+#include <lexer.hpp>
+#include <parser.hpp>
+#include <compile.hpp>
 
 using namespace std;
 int compile(char *file1NameAndPath, char *file2NameAndPath)
