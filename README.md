@@ -3,6 +3,6 @@
 
 Epsilon is a coding language made in C ++
 ## Dependencies
-- POCO C++ libraries
+- [QT](https://www.qt.io)
 ## Building
 Make sure all dependencies are installed then run `mkdir build && cmake -B build && cd build && make` in the project folder to build it.
