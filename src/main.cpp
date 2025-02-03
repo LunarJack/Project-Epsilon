@@ -11,11 +11,11 @@ int main(int argc, char *argv[])
         {
                 if (strcmp(argv[1], "-h") == 0)
                 {
-                        cout << "To compile code type\nepsilon -c <Input file> <Compiled code file>\nTo run compiled code type:\nepsilon -r <Compiled code file>" << endl;
+                        cout << "To compile code type\nepsilon -c <Input file> <Compiled code file> <Options>\nTo run compiled code type:\nepsilon -r <Compiled code file>" << endl;
                         return 0;
                 }
         }
-        else if (argc == 4)
+        else if (argc >= 4)
         {
                 if (strcmp(argv[1], "-c") == 0)
                 {

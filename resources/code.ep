@@ -1,4 +1,5 @@
-from lib import lib;
+import cmd;
+from header import header;
 func main()
 {
     lib lib;

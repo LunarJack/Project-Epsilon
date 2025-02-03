@@ -4,6 +4,8 @@
 #include <QWidget>
 
 class QPushButton;
+class QProgressBar;
+class QSlider;
 class Window : public QWidget
 {
     public:
@@ -11,6 +13,8 @@ class Window : public QWidget
 
     private:
         QPushButton *m_button;
+        QProgressBar *progressBar;
+        QSlider *slider;
 };
 
 #endif // WINDOW_H

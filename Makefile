@@ -11,7 +11,7 @@ else
         PLATFORM = "OSX"
     endif
 endif
-CXXFLAGS = -Isrc/include -I/opt/homebrew/include -std=c++20
+CXXFLAGS = -Isrc/include -std=c++20
 LDFLAGS = -L deps/libs
 all: makebuild epsilon installer
 makebuild:
@@ -22,12 +22,8 @@ epsilon: src/main.cpp src/compile.cpp src/lexer.cpp
 	$(CXX) $(CXXFLAGS) src/lexer.cpp -c
 	$(CXX) main.o compile.o lexer.o -o build/epsilon
 	rm -rf *.o
-installer: src/installer.cpp
-	$(CXX) $(CXXFLAGS) src/installer.cpp -c
-	$(CXX) $(LDFLAGS) installer.o -o build/installer_mac
-	$(CXX) $(LDFLAGS) installer.o -o build/installer_win.exe
-	$(CXX) $(LDFLAGS) installer.o -o build/installer_linux
-	rm -rf *.o
+installer:
+
 clean:
 	rm -rf build
 	rm -rf *.o

@@ -1,4 +1,4 @@
-class lib
+class header
 {
     static func add(self, var int num1, var int num2, ptr int num3)
     {
