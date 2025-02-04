@@ -10,6 +10,7 @@ int compile(char *file1NameAndPath, char *file2NameAndPath)
     if (!file.is_open())
     {
         cerr << "File not opened, " << file1NameAndPath << " is not a valid file path\n" << endl;
+        return EXIT_FAILURE;
     }
     else
     {
@@ -19,6 +20,7 @@ int compile(char *file1NameAndPath, char *file2NameAndPath)
     if (!file2.is_open())
     {
         cerr << "File not opened, " << file2NameAndPath << " is not a valid file path\n" << endl;
+        return EXIT_FAILURE;
     }
     else 
     {
