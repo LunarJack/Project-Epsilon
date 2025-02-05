@@ -5,7 +5,6 @@
 using namespace std;
 int compile(char *file1NameAndPath, char *file2NameAndPath)
 {
-    vector<Token> AST;
     ifstream file(file1NameAndPath);
     if (!file.is_open())
     {
@@ -26,6 +25,6 @@ int compile(char *file1NameAndPath, char *file2NameAndPath)
     {
         file2.close();
     }
-    lex(file1NameAndPath, AST);
+    lex(file1NameAndPath);
     return 0;
 }
