@@ -1,6 +1,8 @@
 #include <lexer.hpp>
 #include <parser.hpp>
 #include <compile.hpp>
+#include <fstream>
+#include <iostream>
 
 using namespace std;
 int compile(char *file1NameAndPath, char *file2NameAndPath)

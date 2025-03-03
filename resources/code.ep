@@ -2,7 +2,7 @@ import cmd;
 from header import header;
 func main()
 {
-    lib lib;
+    objectify header lib;
     var string stringVar = "hi";
     const double pi = 3.14159265;
     const double h = 6.62607015;

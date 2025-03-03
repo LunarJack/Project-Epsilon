@@ -1,20 +1,21 @@
 #include <flagHandler.hpp>
 #include <compile.hpp>
 #include <cstdlib>
-#include <iostream>
+#include <stdio.h>
 #include <string>
 #include <vector>
+#include <iostream>
 using namespace std;
-int handle(int argc, char *argv[])
+void handle(int argc, char *argv[])
 {
-    cout << "hi\n";
+    printf("Hi\n");
     vector<string> flags;
-    size_t flagsI = 0;
-    for (size_t argvI = 4; strcmp(argv[argvI], "") == 0; argvI++)
+    int flagsI = 0;
+    for (int argvI = 4; strcmp(argv[argvI], "") == 0; argvI++)
     {
         flags.push_back(argv[argvI]);
         flagsI++;
-        cout << flags[flagsI] << endl;
+        cout << flags[flagsI] << "\n";
     }
-    return 0;
+    printf("Hi\n");
 }

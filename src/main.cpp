@@ -47,4 +47,5 @@ int main(int argc, char *argv[])
                 cout << "Welcome to Epsilon!\nEpsilon is a coding language based on C ++.\nTo see a list of commands type:\nepsilon -h" << endl;
                 return 0;
         }
+        return 0;
 }

@@ -1,14 +1,14 @@
-#include "headers/parser.hpp"
-#include "headers/lexer.hpp"
-#include <iostream>
+#include <parser.hpp>
+#include <lexer.hpp>
+#include <stdio.h>
 #include <string>
 #include <vector>
 #include <memory>
 
 using namespace std;
 
-int parse(vector<string> stringsAndIdentifiers)
+void parse(vector<string> stringsAndIdentifiers)
 {
     Parser Parser;
-    cout << "This is a test." << endl;
+    printf("This is a test.");
 }

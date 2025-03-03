@@ -4,5 +4,5 @@
 class Parser 
 {
 };
-int parse(std::vector<std::string> stringsAndIdentifiers);
+void parse(std::vector<std::string> stringsAndIdentifiers);
 #endif // PARSER_HPP
