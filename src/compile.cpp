@@ -1,5 +1,7 @@
 #include <lexer.hpp>
 #include <parser.hpp>
+#include <fstream>
+#include <iostream>
 #include <compile.hpp>
 #include <fstream>
 #include <iostream>
@@ -13,20 +15,14 @@ int compile(char *file1NameAndPath, char *file2NameAndPath)
         cerr << "File not opened, " << file1NameAndPath << " is not a valid file path\n" << endl;
         return EXIT_FAILURE;
     }
-    else
-    {
-        file.close();
-    }
+    file.close();
     fstream file2(file2NameAndPath);
     if (!file2.is_open())
     {
         cerr << "File not opened, " << file2NameAndPath << " is not a valid file path\n" << endl;
         return EXIT_FAILURE;
     }
-    else 
-    {
-        file2.close();
-    }
+    file2.close();
     lex(file1NameAndPath);
     return 0;
 }
