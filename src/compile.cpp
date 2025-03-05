@@ -1,10 +1,8 @@
 #include <lexer.hpp>
 #include <parser.hpp>
-#include <fstream>
 #include <iostream>
 #include <compile.hpp>
 #include <fstream>
-#include <iostream>
 
 using namespace std;
 int compile(char *file1NameAndPath, char *file2NameAndPath)
@@ -23,6 +21,7 @@ int compile(char *file1NameAndPath, char *file2NameAndPath)
         return EXIT_FAILURE;
     }
     file2.close();
-    lex(file1NameAndPath);
+    std::vector<Token> tokens = lex(file1NameAndPath);
+    parse(tokens);
     return 0;
 }

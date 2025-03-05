@@ -1,6 +1,7 @@
 #include <run.hpp>
 #include <fstream>
+#include <iostream>
 void run(char file[])
 {
-    printf("Not Yet!");
+    std::cout <<"Not Yet!" << std::endl;
 }

@@ -1,16 +1,15 @@
-CXXFLAGS = -Iinclude -std=c++20 -Wall
+CXXFLAGS = -Iinclude -std=c++23 -Wall -save-temps
 LDFLAGS = -L deps/libs
 
-all: makebuild epsilon
-makebuild:
-	mkdir bin
+all: epsilon
 epsilon: src/main.cpp src/compile.cpp src/lexer.cpp src/run.cpp src/flagHandler.cpp
 	$(CXX) $(CXXFLAGS) src/*.cpp -c
-	$(CXX) *.o -o bin/epsilon
+	$(CXX) *.o -o build/epsilon
+	mv *.o build/
+	mv *.ii build/
+	mv *.bc build/
+	mv *.s build/
 clean:
-	rm -rf bin
+	rm -rf build/*
 	rm -rf *.o
-clear:
-	clear
-fullclean: clean clear
 	

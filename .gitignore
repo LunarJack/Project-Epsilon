@@ -26,4 +26,3 @@
 build/*
 .vscode/
 .DS_Store
-QT/build

@@ -16,6 +16,6 @@ func main()
         print("Error! pi is not pi!");
     }
     print(stringVar);
-    lib.add(pi, h, store);
+    print(lib.add(pi, h, store));
     return pi;
 }

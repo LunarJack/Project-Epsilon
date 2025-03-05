@@ -1,4 +1,1 @@
-func print(string input)
-{
-    
-}
+func print(var string input);
