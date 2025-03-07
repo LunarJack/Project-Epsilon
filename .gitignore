@@ -1,6 +1,9 @@
 # Prerequisites
 *.d
 *.o
+*.ii
+*.s
+*.bc
 
 # Precompiled Headers
 *.gch
@@ -18,6 +21,8 @@
 # Compiled Static libraries
 *.lai
 *.la
+*.lib
+*.a
 
 # Executables
 *.exe

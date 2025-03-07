@@ -1,12 +1,11 @@
-import cmd;
-from header import header;
+import header;
 func main()
 {
     objectify header lib;
     var string stringVar = "hi";
-    const double pi = 3.14159265;
-    const double h = 6.62607015;
-    const double store;
+    const var  double pi = 3.14159265;
+    const var double h = 6.62607015;
+    const var double store;
     if (pi = =3.14159265 && stringVar == "hi")
     {
         print(pi);
@@ -18,4 +17,4 @@ func main()
     print(stringVar);
     print(lib.add(pi, h, store));
     return pi;
-}
+} end;

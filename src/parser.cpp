@@ -7,12 +7,13 @@ program parse(vector<Token> tokens)
 {
     string currentToken;
     TokenType currentTokenType;
-    std::vector<Token> tempTokens1;
-    std::vector<Token> tempTokens2;
-    std::vector<std::string> order;
+    vector<Token> tempTokens1;
+    vector<Token> tempTokens2;
+    vector<string> order;
     Token tempToken;
     program currentProgram;
     string tempString;
+    string tempString2;
     bool tempBool;
     cout << "This is a test." << endl;
     for(int i = 0; i < tokens.size(); i++)
@@ -22,22 +23,34 @@ program parse(vector<Token> tokens)
         switch(currentTokenType)
         {
             case TokenType::KEYWORD:
-                if(currentToken.compare("import"))
-                {
-                    i++;
-                    currentToken = tokens[i].value;
-                    currentProgram.imports.emplace_back(currentToken.append(".ehd"));
-                    order.push_back("Ki");
-                }
-                else if(currentToken.compare("var"))
+                if(currentToken.compare("var"))
                 {
                     i++;
                     currentToken = tokens[i].value;
                     tempString = currentToken;
                     i++;
+                    tempString2 = tokens[i].value;
+                    i++;
                     currentToken = tokens[i].value;
-                    currentProgram.vars.emplace_back(tempString, currentToken);
+                    if(currentToken.compare(";"))
+                    {
+                    }
+                    else if(currentToken.compare("="))
+                    {
+                        while(!currentToken.compare(";"))
+                        {
+                            i++;
+                            tempTokens1.push_back(tokens[i]);
+                        }
+                    }
+                    else
+                    {
+                        tempTokens1.clear();
+                        break; //Error
+                    }
+                    currentProgram.vars.emplace_back(tempString, currentToken, tempTokens1);
                     order.push_back("Kv");
+                    tempTokens1.clear();
                 }
                 else if(currentToken.compare("const"))
                 {
@@ -50,15 +63,35 @@ program parse(vector<Token> tokens)
                     else
                     {
                         tempBool = false;
-                        break;
+                        break; //Error
                     }
                     i++;
-                    currentToken = tokens[i].value;
-                    tempString = currentToken;
+                    tempString =  tokens[i].value;
                     i++;
                     currentToken = tokens[i].value;
-                    currentProgram.consts.emplace_back(tempBool, tempString, currentToken);
+                    i++;
+                    currentToken = tokens[i].value;
+                    if(currentToken.compare(";"))
+                    {
+                        tempTokens1.clear();
+                        break; //Error
+                    }
+                    else if(currentToken.compare("="))
+                    {
+                        while(!currentToken.compare(";"))
+                        {
+                            i++;
+                            tempTokens1.push_back(tokens[i]);
+                        }
+                    }
+                    else
+                    {
+                        tempTokens1.clear();
+                        break; //Error
+                    }
+                    currentProgram.consts.emplace_back(tempBool, tempString, currentToken, tempTokens1);
                     order.push_back("Kc");
+                    tempTokens1.clear();
                 }
                 else if(currentToken.compare("func"))
                 {
@@ -75,18 +108,7 @@ program parse(vector<Token> tokens)
                         currentToken = tokens[i].value;
                         if(!currentToken.compare(","))
                         {
-                            if(currentToken.compare("const"))
-                            {
-                                
-                            }
-                            else if()
-                            {
-
-                            }
-                            else
-                            {
-                                tempTokens1.push_back(tokens[i]);
-                            }
+                            tempTokens1.push_back(tokens[i]);
                         }
                     }
                     i++;
@@ -112,6 +134,8 @@ program parse(vector<Token> tokens)
                     i++;
                     currentProgram.funcs.emplace_back(tempString, tempTokens1, tempTokens2, tempBool, tokens[i]);
                     order.push_back("Kf");
+                    tempTokens1.clear();
+                    tempTokens2.clear();
                 }
                 else if(currentToken.compare("static"))
                 {
@@ -146,7 +170,7 @@ program parse(vector<Token> tokens)
                     i++;
                     currentToken = tokens[i].value;
                     tempTokens2.push_back(tokens[i]);
-                    while(!currentToken.compare("return"))
+                    while(!currentToken.compare("end"))
                     {
                         i++;
                         currentToken = tokens[i].value;
@@ -155,6 +179,8 @@ program parse(vector<Token> tokens)
                     i++;
                     currentProgram.statics.emplace_back(tempString, tempTokens1, tempTokens2, tempBool, tokens[i]);
                     order.push_back("Ks");
+                    tempTokens1.clear();
+                    tempTokens2.clear();
                 }
             case TokenType::IDENTIFIER:
                 
